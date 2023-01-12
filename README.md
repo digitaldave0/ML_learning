@@ -277,7 +277,10 @@ Just like with vanilla Q-Learning, the agent still needs to update our model wei
 
 Figure 7: Updating the neural network with the new Temporal Difference target using the Bellman equation (Image by Author)
 
+<img src="https://miro.medium.com/max/640/0*GqqJmq4NMCZ8vYNg" width="300">
+
 Figure 8: The Temporal Difference target we want to replicate using our neural network (Image by Author)
+
 From the original Bellman equation in Figure 3, we want to replicate the Temporal Difference target operation using our neural network rather than using a Q-table. Note that the target network and not the main network is used to calculate the Temporal Difference target. Assuming that the temporal difference target operation produces a value of 9 in the example above, we can update the main network weights by assigning 9 to the target q-value and fitting our main network weights to the new target values.
 
 5. Tips and Tricks (source)
