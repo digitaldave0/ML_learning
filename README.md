@@ -144,6 +144,24 @@ Reinforcement learning has been applied to a wide range of problems, including
 
 It is particularly useful for tasks where it is difficult to define a clear set of rules or a specific objective, and the agent must learn through trial and error how to interact with the environment in order to achieve a desired outcome.
 
+## DNQ (Deep-Q-Learning)
+
+Reinforcement Learning is an exciting field of Machine Learning that’s attracting a lot of attention and popularity. An important reason for this popularity is due to breakthroughs in Reinforcement Learning where computer algorithms such as Alpha Go and OpenAI Five have been able to achieve human level performance on games such as Go and Dota 2. One of the core concepts in Reinforcement Learning is the Deep Q-Learning algorithm. Naturally, a lot of us want to learn more about the algorithms behind these impressive accomplishments. In this tutorial, we’ll be sharing a minimal Deep Q-Network implementation (minDQN) meant as a practical guide to help new learners code their own Deep Q-Networks.
+
+1. Reinforcement Learning Background
+Reinforcement Learning can broadly be separated into two groups: model free and model based RL algorithms. Model free RL algorithms don’t learn a model of their environment’s transition function to make predictions of future states and rewards. Q-Learning, Deep Q-Networks, and Policy Gradient methods are model-free algorithms because they don’t create a model of the environment’s transition function.
+
+2. The CartPole OpenAI Gym Environment
+
+Figure 1: Balancing a pole in the CartPole Environment (Image by Author)
+The CartPole environment is a simple environment where the objective is to move a cart left or right in order to balance an upright pole for as long as possible. The state space is described with 4 values representing Cart Position, Cart Velocity, Pole Angle, and Pole Velocity at the Tip. The action space is described with 2 values (0 or 1) allowing the car to either move left or right at each time step.
+
+[<img src="https://miro.medium.com/max/720/0*Ch8Sq_3_b3Q1wVWa" width="250">]()
+
+The CartPole environment is a simple environment where the objective is to move a cart left or right in order to balance an upright pole for as long as possible. The state space is described with 4 values representing Cart Position, Cart Velocity, Pole Angle, and Pole Velocity at the Tip. The action space is described with 2 values (0 or 1) allowing the car to either move left or right at each time step.
+
+
+
 ### What is deep learning actually used for?
 
 Deep learning is a type of machine learning that involves using multi-layered artificial neural networks to learn and make decisions based on data. It has been successfully applied to a wide range of problems, including:
