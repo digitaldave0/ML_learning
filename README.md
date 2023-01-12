@@ -165,7 +165,7 @@ The CartPole environment is a simple environment where the objective is to move 
 
 ### The Q-Learning Algorithm
 
-<img src="https://miro.medium.com/max/720/0*PGlWnJQQCH8Jb8-P" width="250">]()
+<img src="https://miro.medium.com/max/720/0*PGlWnJQQCH8Jb8-P" width="300">]()
 
 1. Initialize your Q-table
 
@@ -175,13 +175,14 @@ The CartPole environment is a simple environment where the objective is to move 
 
 3b. Initialize your Q-table
 
-<img src="https://miro.medium.com/max/640/0*vhdi0Dk61boBub2S" width="250">]()
+<img src="https://miro.medium.com/max/640/0*vhdi0Dk61boBub2S" width="300">]()
 
 The Q-table is a simple data structure that we use to keep track of the states, actions, and their expected rewards. More specifically, the Q-table maps a state-action pair to a Q-value (the estimated optimal future value) which the agent will learn. At the start of the Q-Learning algorithm, the Q-table is initialized to all zeros indicating that the agent doesn’t know anything about the world. As the agent tries out different actions at different states through trial and error, the agent learns each state-action pair’s expected reward and updates the Q-table with the new Q-value. Using trial and error to learn about the world is called Exploration.
 
 One of the goals of the Q-Learning algorithm is to learn the Q-Value for a new environment. The Q-Value is the maximum expected reward an agent can reach by taking a given action A from the state S. After an agent has learned the Q-value of each state-action pair, the agent at state S maximizes its expected reward by choosing the action A with the highest expected reward. Explicitly choosing the best known action at a state is called Exploitation.
 
 3b. Choose an action using the Epsilon-Greedy Exploration Strategy
+
 A common strategy for tackling the exploration-exploitation tradeoff is the Epsilon Greedy Exploration Strategy.
 
 At every time step when it’s time to choose an action, roll a dice
@@ -189,7 +190,107 @@ If the dice has a probability less than epsilon, choose a random action
 Otherwise take the best known action at the agent’s current state
 Note that at the beginning of the algorithm, every step the agent takes will be random which is useful to help the agent learn about the environment it’s in. As the agent takes more and more steps, the value of epsilon decreases and the agent starts to try existing known good actions more and more. Note that epsilon is initialized to 1 meaning every step is random at the start. Near the end of the training process, the agent will be exploring much less and exploiting much more.
 
+3c. Update the Q-table using the Bellman Equation
 
+The Bellman Equation tells us how to update our Q-table after each step we take. To summarize this equation, the agent updates the current perceived value with the estimated optimal future reward which assumes that the agent takes the best current known action. In an implementation, the agent will search through all the actions for a particular state and choose the state-action pair with the highest corresponding Q-value.
+
+
+<img src="https://miro.medium.com/max/640/0*vhdi0Dk61boBub2S" width="300">]
+
+
+- S = the State or Observation
+- A = the Action the agent takes
+- R = the Reward from taking an Action
+- t = the time step
+- Ɑ = the Learning Rate
+- ƛ = the discount factor which causes rewards to lose their value over time so more immediate rewards are valued more highly
+
+4. Deep Q-Network
+
+## Vanilla Q-Learning: A table maps each state-action pair to its corresponding Q-value
+
+<img src="https://miro.medium.com/max/720/0*wDciUBot1UUbFhrr" width="300">
+
+
+### Deep Q-Learning: A Neural Network maps input states to (action, Q-value) pairs
+
+The Deep Q-Network Algorithm
+
+Figure 5: The Deep Q-Network Algorithm (Image by Author)
+Initialize your Main and Target neural networks
+Choose an action using the Epsilon-Greedy Exploration Strategy
+Update your network weights using the Bellman Equation
+
+4a. Initialize your Target and Main neural networks
+
+A core difference between Deep Q-Learning and Vanilla Q-Learning is the implementation of the Q-table. Critically, Deep Q-Learning replaces the regular Q-table with a neural network. Rather than mapping a state-action pair to a q-value, a neural network maps input states to (action, Q-value) pairs.
+
+One of the interesting things about Deep Q-Learning is that the learning process uses 2 neural networks. These networks have the same architecture but different weights. Every N steps, the weights from the main network are copied to the target network. Using both of these networks leads to more stability in the learning process and helps the algorithm to learn more effectively. In our implementation, the main network weights replace the target network weights every 100 steps.
+
+### How to map States to (Action, Q-value) pairs
+
+<img src="https://miro.medium.com/max/720/0*9qs-EEw3iReB72Lf" width="300">
+
+Figure 6: A neural network mapping an input state to its corresponding (action, q-value) pair (Image by Author)
+The main and target neural networks map input states to an (action, q-value) pair. In this case, each output node (representing an action) contains the action’s q-value as a floating point number. Note that the output nodes do not represent a probability distribution so they will not add up to 1. For the example above, one action has a Q-value of 8 and the other action has a Q-value of 5.
+
+## Defining our network architecture
+
+```code
+def agent(state_shape, action_shape):
+    learning_rate = 0.001
+    init = tf.keras.initializers.HeUniform()
+    model = keras.Sequential()
+    model.add(keras.layers.Dense(24, input_shape=state_shape, activation='relu', kernel_initializer=init))
+    model.add(keras.layers.Dense(12, activation='relu', kernel_initializer=init))
+    model.add(keras.layers.Dense(action_shape, activation='linear', kernel_initializer=init))
+    model.compile(loss=tf.keras.losses.Huber(), optimizer=tf.keras.optimizers.Adam(lr=learning_rate), metrics=['accuracy'])
+    return model
+```
+
+In our implementation, the main and target networks are quite simple consisting of 3 densely connected layers with Relu activation functions. The most notable features are that we use He uniform initialization as well as the Huber loss function to achieve better performance.
+
+4b. Choose an action using the Epsilon-Greedy Exploration Strategy
+
+In the Epsilon-Greedy Exploration strategy, the agent chooses a random action with probability epsilon and exploits the best known action with probability 1 — epsilon.
+
+## How do you find the best known action from your network?
+
+Both the Main model and the Target model map input states to output actions. These output actions actually represent the model’s predicted Q-value. In this case, the action that has the largest predicted Q-value is the best known action at that state.
+
+4c. Update your network weights using the Bellman Equation
+
+After choosing an action, it’s time for the agent to perform the action and update the Main and Target networks according to the Bellman equation. Deep Q-Learning agents use Experience Replay to learn about their environment and update the Main and Target networks.
+
+To summarize, the main network samples and trains on a batch of past experiences every 4 steps. The main network weights are then copied to the target network weights every 100 steps.
+
+## Experience Replay
+
+Experience Replay is the act of storing and replaying game states (the state, action, reward, next_state) that the RL algorithm is able to learn from. Experience Replay can be used in Off-Policy algorithms to learn in an offline fashion. Off-policy methods are able to update the algorithm’s parameters using saved and stored information from previously taken actions. Deep Q-Learning uses Experience Replay to learn in small batches in order to avoid skewing the dataset distribution of different states, actions, rewards, and next_states that the neural network will see. Importantly, the agent doesn’t need to train after each step. In our implementation, we use Experience Replay to train on small batches once every 4 steps rather than every single step. We found this trick to really help speed up our Deep Q-Learning implementation.
+
+Bellman Equation
+
+Just like with vanilla Q-Learning, the agent still needs to update our model weights according to the Bellman Equation.
+
+<img src="https://miro.medium.com/max/720/0*hVd8wqmFIEKQqGm9" width="300">
+
+
+Figure 7: Updating the neural network with the new Temporal Difference target using the Bellman equation (Image by Author)
+
+Figure 8: The Temporal Difference target we want to replicate using our neural network (Image by Author)
+From the original Bellman equation in Figure 3, we want to replicate the Temporal Difference target operation using our neural network rather than using a Q-table. Note that the target network and not the main network is used to calculate the Temporal Difference target. Assuming that the temporal difference target operation produces a value of 9 in the example above, we can update the main network weights by assigning 9 to the target q-value and fitting our main network weights to the new target values.
+
+5. Tips and Tricks (source)
+Our Deep Q-Network implementation needed a few tricks before the agent started to learn to solve the CartPole problem effectively. Here are some of the tips and tricks that really helped.
+
+Having the right model parameter update frequency is important. If you update model weights too often (e.g. after every step), the algorithm will learn very slowly when not much has changed. In this case, we perform main model weight updates every 4 steps which helps the algorithm to run significantly faster.
+
+Setting the correct frequency to copy weights from the Main Network to the Target Network also helps improve learning performance. We initially tried to update the Target Network every N episodes which turned out to be less stable because the episodes can have a different number of steps. Sometimes there would be 10 steps in an episode and other times there could be 200 steps. We found that updating the Target Network every 100 steps seemed to work relatively well.
+Using the Huber loss function rather than the Mean Squared Error loss function also helps the agent to learn. The Huber loss function weighs outliers less than the Mean Squared Error loss function.
+The right initialization strategy seems to help. In this case, we use He Initialization for initializing network weights. He Initialization is a good initialization strategy for networks that use the Relu activation function.
+
+6. Deep Q-Network Coding Implementation
+Putting it all together, you can find our minimal Deep Q-Network implementation solving the CartPole problem here. This implementation uses Tensorflow and Keras and should generally run in less than 15 minutes.
 
 ### What is deep learning actually used for?
 
@@ -233,7 +334,9 @@ https://ai.googleblog.com/2017/08/transformer-novel-neural-network.html#:~:text=
 
 Neural networks, in particular recurrent neural networks (RNNs), are now at the core of the leading approaches to language understanding tasks such as language modeling, machine translation and question answering. In “Attention Is All You Need”, we introduce the Transformer, a novel neural network architecture based on a self-attention mechanism that we believe to be particularly well suited for language understanding.
 
-[<img src="https://miro.medium.com/max/1400/1*DIelATUu_zKd5eSqD8315Q.png" width="400">]()
+[<img src="https://miro.medium.com/max/4800/0*d3D5g7IxKDHHk8dN" width="400">]()
+
+
 
 https://www.youtube.com/watch?v=O3xbVmpdJwU
 
