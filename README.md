@@ -1,6 +1,6 @@
-## ML deep learning notes
+# ML deep learning notes
 
-### ML premier 
+## ML premier 
 
 Artificial Intelligence (AI) is a broad term used to describe systems capable of making certain decisions on their own. Machine Learning (ML) is a specific subject within the broader AI arena, describing the ability for a machine to improve its ability by practising a task or being exposed to a large data set. Its fast moving set of technologies to see the latest look at https://paperswithcode.com/sota
 
@@ -27,9 +27,9 @@ Recipe is the program
 
 ## Google's 1st rule of machine learning is
 
-If you can build a simple rules based system that doesn't require machine learning do that don’t use ML for rules based activities like a recipe 
+> If you can build a simple rules based system that doesn't require machine learning do that don’t use ML for rules based activities like a recipe 
 
-## What deep learning is good for
+# What deep learning is good for
 
 - Use ML for problems that have a long list of rules. When the traditional approach fails machine learning, deep learning can help when there’s millions of rules like self driving cars
 
