@@ -1,4 +1,4 @@
-# ML deep learning notes
+# Machine Learning & Deep Learning Notes
 
 ## ML premier 
 
