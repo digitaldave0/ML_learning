@@ -4,9 +4,11 @@
 
 Artificial Intelligence (AI) is a broad term used to describe systems capable of making certain decisions on their own. Machine Learning (ML) is a specific subject within the broader AI arena, describing the ability for a machine to improve its ability by practising a task or being exposed to a large data set. Its fast moving set of technologies to see the latest look at https://paperswithcode.com/sota
 
+Arthur Samuel from 1959. This one for me really is the essence of what machine learning is. It goes like this:
 
-[<img src="https://www.onemodel.co/hubfs/main-qimg-b6846724daf2af284a1137c1a8e72f56.png">]()
+> ### "ML is the "field of study that gives computers the ability to learn without being explicitly programmed".
 
+<img src="https://www.onemodel.co/hubfs/main-qimg-b6846724daf2af284a1137c1a8e72f56.png">
 
 ### Inputs
 
@@ -17,18 +19,20 @@ Recipe is the program
 
 - Cooked food is the output (labels)
 - With traditional programs you define the rules 
-- For a complex problem you can't think about all the rules  that's when you use ML, ML is used when there are millions of rules,  like how to drive a = car, all the possibilities could never be mapped as rules
+- For a complex problem you can't think about all the rules  that's when you use ML, ML is used when there are millions of rules,  
+- like how to drive a = car, all the possibilities could never be mapped as rules
 - Parameters are Patterns, numbers in data that make the model
 - Deep learning models are problemistic , e.g there making a bet on that connection 
-- Someone in YouTube wrote
 
 
-> I think you can use ML for literally anything as long as you can turn it into numbers and then program it to find patterns, we write the algorithm and it finds the patterns  it can be literally be anything any input or output in the universe 
+Quote to describe ML
+
+> ### "I think you can use ML for literally anything as long as you can turn it into numbers and then program it to find patterns, we write the algorithm and it finds the patterns  it can be literally be anything any input or output in the universe" 
 
 
-## Google's 1st rule of machine learning is
+Google's 1st rule of machine learning is
 
-> If you can build a simple rules based system that doesn't require machine learning do that don’t use ML for rules based activities like a recipe 
+> ### "If you can build a simple rules based system that doesn't require machine learning do that don’t use ML for rules based activities" 
 
 ### What is deep learning actually used for?
 
