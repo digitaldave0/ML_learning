@@ -30,6 +30,17 @@ Recipe is the program
 
 > If you can build a simple rules based system that doesn't require machine learning do that don’t use ML for rules based activities like a recipe 
 
+### What is deep learning actually used for?
+
+Deep learning is a type of machine learning that involves using multi-layered artificial neural networks to learn and make decisions based on data. It has been successfully applied to a wide range of problems, including:
+
+- Image and video processing tasks, such as object recognition and classification, image and video generation, and image and video style transfer.
+- Speech and audio processing tasks, such as speech recognition, language translation, and music generation.
+- Natural language processing tasks, such as language translation, text summarization, and sentiment analysis.
+- Predictive modelling tasks, such as stock price prediction and customer churn prediction.
+- Overall, deep learning has been used to achieve state-of-the-art results in many areas, and it has the potential to revolutionise the way we interact with and process data in a variety of fields
+
+
 # What deep learning is good for
 
 - Use ML for problems that have a long list of rules. When the traditional approach fails machine learning, deep learning can help when there’s millions of rules like self driving cars
@@ -143,6 +154,7 @@ Reinforcement learning has been applied to a wide range of problems, including
 - natural language processing. 
 
 It is particularly useful for tasks where it is difficult to define a clear set of rules or a specific objective, and the agent must learn through trial and error how to interact with the environment in order to achieve a desired outcome.
+
 
 ## DNQ (Deep-Q-Learning)
 
@@ -286,24 +298,14 @@ From the original Bellman equation in Figure 3, we want to replicate the Tempora
 5. Tips and Tricks (source)
 Our Deep Q-Network implementation needed a few tricks before the agent started to learn to solve the CartPole problem effectively. Here are some of the tips and tricks that really helped.
 
-Having the right model parameter update frequency is important. If you update model weights too often (e.g. after every step), the algorithm will learn very slowly when not much has changed. In this case, we perform main model weight updates every 4 steps which helps the algorithm to run significantly faster.
-
-Setting the correct frequency to copy weights from the Main Network to the Target Network also helps improve learning performance. We initially tried to update the Target Network every N episodes which turned out to be less stable because the episodes can have a different number of steps. Sometimes there would be 10 steps in an episode and other times there could be 200 steps. We found that updating the Target Network every 100 steps seemed to work relatively well.
-Using the Huber loss function rather than the Mean Squared Error loss function also helps the agent to learn. The Huber loss function weighs outliers less than the Mean Squared Error loss function.
-The right initialization strategy seems to help. In this case, we use He Initialization for initializing network weights. He Initialization is a good initialization strategy for networks that use the Relu activation function.
+- Having the right model parameter update frequency is important. If you update model weights too often (e.g. after every step), the algorithm will learn very slowly when not much has changed. In this case, we perform main model weight updates every 4 steps which helps the algorithm to run significantly faster.
+- Setting the correct frequency to copy weights from the Main Network to the Target Network also helps improve learning performance. We initially tried to update the Target Network every N episodes which turned out to be less stable because the episodes can have a different number of steps. Sometimes there would be 10 steps in an episode and other times there could be 200 steps. We found that updating the Target Network every 100 steps seemed to work relatively well.
+- Using the Huber loss function rather than the Mean Squared Error loss function also helps the agent to learn. The Huber loss function weighs outliers less than the Mean Squared Error loss function.
+- The right initialization strategy seems to help. In this case, we use He Initialization for initializing network weights. He Initialization is a good initialization strategy for networks that use the Relu activation function.
 
 6. Deep Q-Network Coding Implementation
 Putting it all together, you can find our minimal Deep Q-Network implementation solving the CartPole problem here. This implementation uses Tensorflow and Keras and should generally run in less than 15 minutes.
 
-### What is deep learning actually used for?
-
-Deep learning is a type of machine learning that involves using multi-layered artificial neural networks to learn and make decisions based on data. It has been successfully applied to a wide range of problems, including:
-
-- Image and video processing tasks, such as object recognition and classification, image and video generation, and image and video style transfer.
-- Speech and audio processing tasks, such as speech recognition, language translation, and music generation.
-- Natural language processing tasks, such as language translation, text summarization, and sentiment analysis.
-- Predictive modelling tasks, such as stock price prediction and customer churn prediction.
-- Overall, deep learning has been used to achieve state-of-the-art results in many areas, and it has the potential to revolutionise the way we interact with and process data in a variety of fields
 
 ### Sequence-to-sequence (Seq2Seq)
 
