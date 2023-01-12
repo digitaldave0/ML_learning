@@ -146,9 +146,12 @@ It is particularly useful for tasks where it is difficult to define a clear set 
 
 ## DNQ (Deep-Q-Learning)
 
-Reinforcement Learning is an exciting field of Machine Learning that’s attracting a lot of attention and popularity. An important reason for this popularity is due to breakthroughs in Reinforcement Learning where computer algorithms such as Alpha Go and OpenAI Five have been able to achieve human level performance on games such as Go and Dota 2. One of the core concepts in Reinforcement Learning is the Deep Q-Learning algorithm. Naturally, a lot of us want to learn more about the algorithms behind these impressive accomplishments. In this tutorial, we’ll be sharing a minimal Deep Q-Network implementation (minDQN) meant as a practical guide to help new learners code their own Deep Q-Networks.
+Reinforcement Learning is an exciting field of Machine Learning that’s attracting a lot of attention and popularity. An important reason for this popularity is due to breakthroughs in Reinforcement Learning where computer algorithms such as Alpha Go and OpenAI Five have been able to achieve human level performance on games such as Go and Dota 2. 
+
+One of the core concepts in Reinforcement Learning is the Deep Q-Learning algorithm. Below details a minimal Deep Q-Network implementation (minDQN) meant as a practical guide to help new learners code their own Deep Q-Networks.
 
 1. Reinforcement Learning Background
+
 Reinforcement Learning can broadly be separated into two groups: model free and model based RL algorithms. Model free RL algorithms don’t learn a model of their environment’s transition function to make predictions of future states and rewards. Q-Learning, Deep Q-Networks, and Policy Gradient methods are model-free algorithms because they don’t create a model of the environment’s transition function.
 
 2. The CartPole OpenAI Gym Environment
@@ -159,6 +162,32 @@ The CartPole environment is a simple environment where the objective is to move 
 [<img src="https://miro.medium.com/max/720/0*Ch8Sq_3_b3Q1wVWa" width="250">]()
 
 The CartPole environment is a simple environment where the objective is to move a cart left or right in order to balance an upright pole for as long as possible. The state space is described with 4 values representing Cart Position, Cart Velocity, Pole Angle, and Pole Velocity at the Tip. The action space is described with 2 values (0 or 1) allowing the car to either move left or right at each time step.
+
+### The Q-Learning Algorithm
+
+<img src="https://miro.medium.com/max/720/0*Ch8Sq_3_b3Q1wVWa" width="250">]()
+
+1. Initialize your Q-table
+
+2. Choose an action using the Epsilon-Greedy Exploration Strategy
+
+3. Update the Q-table using the Bellman Equation
+
+3b. Initialize your Q-table
+
+<img src="https://miro.medium.com/max/640/0*vhdi0Dk61boBub2S" width="250">]()
+
+The Q-table is a simple data structure that we use to keep track of the states, actions, and their expected rewards. More specifically, the Q-table maps a state-action pair to a Q-value (the estimated optimal future value) which the agent will learn. At the start of the Q-Learning algorithm, the Q-table is initialized to all zeros indicating that the agent doesn’t know anything about the world. As the agent tries out different actions at different states through trial and error, the agent learns each state-action pair’s expected reward and updates the Q-table with the new Q-value. Using trial and error to learn about the world is called Exploration.
+
+One of the goals of the Q-Learning algorithm is to learn the Q-Value for a new environment. The Q-Value is the maximum expected reward an agent can reach by taking a given action A from the state S. After an agent has learned the Q-value of each state-action pair, the agent at state S maximizes its expected reward by choosing the action A with the highest expected reward. Explicitly choosing the best known action at a state is called Exploitation.
+
+3b. Choose an action using the Epsilon-Greedy Exploration Strategy
+A common strategy for tackling the exploration-exploitation tradeoff is the Epsilon Greedy Exploration Strategy.
+
+At every time step when it’s time to choose an action, roll a dice
+If the dice has a probability less than epsilon, choose a random action
+Otherwise take the best known action at the agent’s current state
+Note that at the beginning of the algorithm, every step the agent takes will be random which is useful to help the agent learn about the environment it’s in. As the agent takes more and more steps, the value of epsilon decreases and the agent starts to try existing known good actions more and more. Note that epsilon is initialized to 1 meaning every step is random at the start. Near the end of the training process, the agent will be exploring much less and exploiting much more.
 
 
 
