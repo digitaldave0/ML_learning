@@ -165,7 +165,7 @@ The CartPole environment is a simple environment where the objective is to move 
 
 ### The Q-Learning Algorithm
 
-<img src="https://miro.medium.com/max/720/0*Ch8Sq_3_b3Q1wVWa" width="250">]()
+<img src="https://miro.medium.com/max/720/0*PGlWnJQQCH8Jb8-P" width="250">]()
 
 1. Initialize your Q-table
 
