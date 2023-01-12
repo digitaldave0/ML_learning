@@ -14,6 +14,7 @@ Think Food ingredients
 Recipe is the program 
 
 ### Outputs 
+
 - Cooked food is the output (labels)
 - With traditional programs you define the rules 
 - For a complex problem you can't think about all the rules  that's when you use ML, ML is used when there are millions of rules,  like how to drive a = car, all the possibilities could never be mapped as rules
@@ -58,6 +59,7 @@ Since the advent of deep learning below have been termed as shallow algorithms
 - Support vector machine 
 
 ## Unstructured data
+
 - Is tweets, webpages, pictures, voice, we can turn unstructured data into a patterns, numbers using tensors
 - Neural network 
 - Fully connected neural network
@@ -76,11 +78,12 @@ Neural networks are a type of machine learning algorithm inspired by the structu
 [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Neural_network_example.svg/1200px-Neural_network_example.svg.png" width="200">]()
 
 Neural networks are trained to perform a specific task by adjusting the strengths of the connections between neurons, known as "weights." Once trained, a neural network can process inputs, make predictions, and learn from its mistakes, just like a human brain. Neural networks are commonly used for tasks such as image and speech recognition, language translation, and playing games. They are particularly useful for handling complex, non-linear relationships within data. 
-summary of neural networks 
+
+### summary of neural networks 
 
 Neural networks take in unstructured data, such as images or text, and convert them into a numerical representation, often called a tensor, which can be processed by the network. The network typically consists of an input layer, one or more hidden layers, and an output layer. The input layer receives the input data and passes it through the hidden layers, which apply transformations to the data using weights that have been learned through training. The output layer produces the final output, which can be a prediction, classification, or some other desired result.
 
-Hidden layers 
+### Hidden layers 
 
 The number and size of the hidden layers, as well as the specific types of transformations applied to the data, depend on the problem being solved and the design of the neural network model. Different types of neural networks, such as convolutional neural networks and recurrent neural networks, are well-suited to different types of problems and data.
 
@@ -91,22 +94,28 @@ Overall, neural networks are a powerful tool for processing and analysing comple
 Here's a simple description of the anatomy of a neural network:
 
 - Input layer: The input layer receives the input data and passes it on to the hidden layers for processing. The input layer has one or more neurons, depending on the complexity of the input data. Nodes
+
 - Hidden layers: The hidden layers are sandwiched between the input and output layers and perform intermediate processing on the data as it flows through the network. Each hidden layer has one or more neurons, and the specific design of the hidden layers depends on the problem being solved and the specific neural network model being used. Neurons 
-- Output layer: The output layer receives the processed data from the hidden layers and produces the final output of the network, which can be a prediction, classification, or some other desired result. The output layer has one or more neurons, depending on the complexity of the output. Outputs 
+
+- Output layer: The output layer receives the processed data from the hidden layers and produces the final output of the network, which can be a prediction, classification, or some other desired result. The output layer has one or more neurons, depending on the complexity of the output. 
+
+- Outputs 
+
 Overall, a neural network is a network of interconnected "neurons" that process and transmit information, using learned weights to extract features and relationships from data and make predictions or perform other tasks. The specific design of the network, including the number and size of the hidden layers and the type of transformations applied to the data, depends on the problem being solved and the specific neural network model being used.
 
 ## Types of learning 
 
 Different types of learning paradigms
 
-## Supervised learning
+### Supervised learning
+
 In supervised learning, the algorithm is trained on a labelled dataset, where the correct output is provided for each example in the training set. The goal of the algorithm is to learn a function that maps inputs to their corresponding outputs. This function can then be used to make predictions on new, unseen examples. Examples of supervised learning tasks include classification, regression, and prediction
 
-## Unsupervised learning
+### Unsupervised learning
 
 In unsupervised learning, the algorithm is not given any labelled examples and must discover the underlying structure of the data through exploration and analysis. The goal of the algorithm is to identify patterns and relationships in the data without the guidance of a labelled training set. Examples of unsupervised learning tasks include clustering, anomaly detection, and dimensionality reduction.
 
-## Transfer learning
+### Transfer learning
 
 Transfer learning is a type of machine learning that involves using the knowledge and skills learned from solving one problem to improve the performance of a model on a different but related problem.
 
@@ -118,11 +127,15 @@ There are two main types of transfer learning: feature-based transfer learning a
 - In fine-tuning, the pre-trained model is modified and re-trained on the new task, using both the pre-trained weights and new weights learned on the new task.
 Transfer learning has been successfully applied to a wide range of machine learning tasks, such as image and text classification, natural language processing, and speech 
 
-## Reinforcement Learning 
+### Reinforcement Learning 
 
 Reinforcement learning is a type of machine learning in which an agent learns by interacting with its environment and receiving feedback in the form of rewards or punishments. The goal of the agent is to maximise the cumulative reward it receives over time by taking actions that lead to desirable outcomes.
+
 In reinforcement learning, the agent is faced with a series of states, and at each state, it can choose from a set of actions. The agent receives a reward or penalty based on its actions and the resulting state of the environment. 
-The agent's learning process involves trial and error, as it tries different actions and receives feedback in the form of rewards or punishments. Through this process, the agent learns which actions are most likely to lead to positive outcomes and adjust its behaviour accordingly.
+The agent's learning process involves trial and error, as it tries different actions and receives feedback in the form of rewards or punishments. 
+
+Through this process, the agent learns which actions are most likely to lead to positive outcomes and adjust its behaviour accordingly.
+
 Reinforcement learning has been applied to a wide range of problems, including 
 
 - control systems 
@@ -131,7 +144,7 @@ Reinforcement learning has been applied to a wide range of problems, including
 
 It is particularly useful for tasks where it is difficult to define a clear set of rules or a specific objective, and the agent must learn through trial and error how to interact with the environment in order to achieve a desired outcome.
 
-## What is deep learning actually used for?
+### What is deep learning actually used for?
 
 Deep learning is a type of machine learning that involves using multi-layered artificial neural networks to learn and make decisions based on data. It has been successfully applied to a wide range of problems, including:
 
@@ -141,11 +154,12 @@ Deep learning is a type of machine learning that involves using multi-layered ar
 - Predictive modelling tasks, such as stock price prediction and customer churn prediction.
 - Overall, deep learning has been used to achieve state-of-the-art results in many areas, and it has the potential to revolutionise the way we interact with and process data in a variety of fields
 
-## Sequence-to-sequence (Seq2Seq)
+### Sequence-to-sequence (Seq2Seq)
 
 Sequence-to-sequence (Seq2Seq) is a type of neural network architecture that is commonly used for tasks involving sequential data, such as natural language processing and machine translation.
 
 In a Seq2Seq model, the input data is a sequence of items, and the goal is to predict a corresponding output sequence. For example, in the case of machine translation, the input sequence is a sentence in one language, and the output sequence is the translation of that sentence into another language.
+
 Seq2Seq models typically consist of two main components: an encoder and a decoder. 
 
 - The encoder processes the input sequence and produces a fixed-length representation, called the "context," which captures the key information in the input sequence. 
@@ -164,7 +178,21 @@ goal is to predict the words spoken in an audio recording.
 
 Overall, classification and regression are common types of supervised learning tasks that are widely used in a variety of applications. They involve training a model on a labelled dataset, where the correct output is provided for each example in the training set, and then using the trained model to make predictions on new, unseen examples.
 
-## What is PyTorch 
+## Transformers
+
+Paper pubished 2017 when breakthrough happend
+
+https://ai.googleblog.com/2017/08/transformer-novel-neural-network.html#:~:text=Neural%20networks%2C%20in,with%20the%20Transformer.
+
+Neural networks, in particular recurrent neural networks (RNNs), are now at the core of the leading approaches to language understanding tasks such as language modeling, machine translation and question answering. In “Attention Is All You Need”, we introduce the Transformer, a novel neural network architecture based on a self-attention mechanism that we believe to be particularly well suited for language understanding.
+
+[<img src="https://miro.medium.com/max/1400/1*DIelATUu_zKd5eSqD8315Q.png" width="400">]()
+
+https://www.youtube.com/watch?v=O3xbVmpdJwU
+
+# PyTorch
+
+### What's PyTorch
 
 PyTorch is a popular open-source machine learning framework developed and maintained by Facebook's AI Research group. It is widely used for training deep learning models and has a number of features that make it well-suited for this purpose.
 One of the main benefits of PyTorch is its intuitive and flexible programming model, which allows developers to easily define and manipulate complex neural networks. It also supports GPU acceleration, which allows for faster training of deep learning models.
