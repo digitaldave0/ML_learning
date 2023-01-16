@@ -132,6 +132,10 @@ Regression is a form of machine learning used to understand the relationships be
 
 Regression is an example of a supervised machine learning technique in which you train a model using data that includes both the features and known values for the label, so that the model learns to fit the feature combinations to the label. Then, after training has been completed, you can use the trained model to predict labels for new items for which the label is unknown.
 
+#### Classification
+
+Classification is an example of a supervised machine learning technique in which you train a model using data that includes both the features and known values for the label, so that the model learns to fit the feature combinations to the label. Then, after training has been completed, you can use the trained model to predict labels for new items for which the label is unknown.
+
 ### Unsupervised learning
 
 In unsupervised learning, the algorithm is not given any labelled examples and must discover the underlying structure of the data through exploration and analysis. The goal of the algorithm is to identify patterns and relationships in the data without the guidance of a labelled training set. Examples of unsupervised learning tasks include clustering, anomaly detection, and dimensionality reduction.
