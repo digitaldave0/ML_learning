@@ -73,13 +73,6 @@ Since the advent of deep learning below have been termed as shallow algorithms
 - Nearest neighbour 
 - Support vector machine 
 
-## Regession
-
-Regression is a form of machine learning used to understand the relationships between variables to predict a desired outcome. Regression predicts a numeric label or outcome based on variables, or features. For example, an automobile sales company might use the characteristics of a car (such as engine size, number of seats, mileage, and so on) to predict its likely selling price. In this case, the characteristics of the car are the features, and the selling price is the label.
-
-Regression is an example of a supervised machine learning technique in which you train a model using data that includes both the features and known values for the label, so that the model learns to fit the feature combinations to the label. Then, after training has been completed, you can use the trained model to predict labels for new items for which the label is unknown.
-
-
 ## Unstructured data
 
 - Is tweets, webpages, pictures, voice, we can turn unstructured data into a patterns, numbers using tensors
@@ -132,6 +125,12 @@ Different types of learning paradigms
 ### Supervised learning
 
 In supervised learning, the algorithm is trained on a labelled dataset, where the correct output is provided for each example in the training set. The goal of the algorithm is to learn a function that maps inputs to their corresponding outputs. This function can then be used to make predictions on new, unseen examples. Examples of supervised learning tasks include classification, regression, and prediction
+
+#### Regession
+
+Regression is a form of machine learning used to understand the relationships between variables to predict a desired outcome. Regression predicts a numeric label or outcome based on variables, or features. For example, an automobile sales company might use the characteristics of a car (such as engine size, number of seats, mileage, and so on) to predict its likely selling price. In this case, the characteristics of the car are the features, and the selling price is the label.
+
+Regression is an example of a supervised machine learning technique in which you train a model using data that includes both the features and known values for the label, so that the model learns to fit the feature combinations to the label. Then, after training has been completed, you can use the trained model to predict labels for new items for which the label is unknown.
 
 ### Unsupervised learning
 
