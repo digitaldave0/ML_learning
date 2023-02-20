@@ -29,7 +29,6 @@ Quote to describe ML
 
 > ### "I think you can use ML for literally anything as long as you can turn it into numbers and then program it to find patterns, we write the algorithm and it finds the patterns  it can be literally be anything any input or output in the universe" 
 
-
 Google's 1st rule of machine learning is
 
 > ### "If you can build a simple rules based system that doesn't require machine learning do that don’t use ML for rules based activities" 
@@ -97,6 +96,20 @@ Neural networks are trained to perform a specific task by adjusting the strength
 ### summary of neural networks 
 
 Neural networks take in unstructured data, such as images or text, and convert them into a numerical representation, often called a tensor, which can be processed by the network. The network typically consists of an input layer, one or more hidden layers, and an output layer. The input layer receives the input data and passes it through the hidden layers, which apply transformations to the data using weights that have been learned through training. The output layer produces the final output, which can be a prediction, classification, or some other desired result.
+
+### ML Pioneers
+
+| Name | Discovery |
+| --- | --- |
+| Geoffrey Hinton | Backpropagation, Boltzmann machines, deep belief networks, capsule networks |
+| Michael I Jordan | Graphical models, variational inference, latent Dirichlet allocation |
+| Andrew Ng | Stanford AI Lab, Coursera, Google Brain, Baidu AI Group |
+| Yann LeCun | Convolutional neural networks, LeNet-5 |
+| Yoshua Bengio | Generative adversarial networks, recurrent neural networks |
+| Jürgen Schmidhuber | Long short-term memory (LSTM), neural Turing machines |
+| Terry Sejnowski | Independent component analysis (ICA), NETtalk system |
+| David M. Blei | Probabilistic topic models |
+
 
 ### Hidden layers 
 
